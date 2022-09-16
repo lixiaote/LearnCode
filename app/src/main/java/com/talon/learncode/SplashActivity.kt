@@ -1,10 +1,14 @@
 package com.talon.learncode
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
-import com.talon.learncode.app.BaseApplication
+import androidx.lifecycle.lifecycleScope
+import com.talon.learncode.home.HomeActivity
 import com.talon.learncode.databinding.ActivitySplashBinding
 import com.talon.learncode.util.ToastUtil
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashActivity : BaseActivity() {
     private var binding: ActivitySplashBinding? = null
@@ -13,13 +17,28 @@ class SplashActivity : BaseActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         binding?.btnStart?.setOnClickListener {
-           // Toast.makeText(this, "hello kotlin", Toast.LENGTH_SHORT).show()
             ToastUtil.toast("hello kotlin")
-         }
+
+        }
+
+
+        delayTask()
+    }
+
+    private fun delayTask() {
+        //默认主线程. 它会监听Activity生命周期, 不需要手动 cancel()
+        lifecycleScope.launch {
+            delay(1500L)
+            goHome();
+        }
+    }
+
+    private fun goHome() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
     }
 
     override fun initView() {
-
     }
 
     override fun initData() {

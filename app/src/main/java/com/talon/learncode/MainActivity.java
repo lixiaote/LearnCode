@@ -13,11 +13,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.tvHello.setText("hello talon");
-        Intent intent = new Intent(MainActivity.this, SplashActivity.class);
-        startActivity(intent);
+
     }
 }
