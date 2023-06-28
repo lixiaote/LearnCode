@@ -2,15 +2,15 @@ package com.talon.learncode
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.talon.learncode.home.HomeActivity
 import com.talon.learncode.databinding.ActivitySplashBinding
+import com.talon.learncode.home.HomeActivity
 import com.talon.learncode.util.ToastUtil
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SplashActivity : BaseActivity() {
+class SplashActivity : AppCompatActivity() {
     private var binding: ActivitySplashBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,9 +21,10 @@ class SplashActivity : BaseActivity() {
 
         }
 
-
         delayTask()
     }
+
+
 
     private fun delayTask() {
         //默认主线程. 它会监听Activity生命周期, 不需要手动 cancel()
@@ -38,11 +39,6 @@ class SplashActivity : BaseActivity() {
         startActivity(intent)
     }
 
-    override fun initView() {
-    }
-
-    override fun initData() {
-    }
 }
 
 
