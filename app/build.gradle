@@ -1,19 +1,21 @@
-import com.talon.learn.Deps
-import com.talon.learn.Versions
+import com.talon.versionplugin.BuildVersions
+import com.talon.versionplugin.Deps
 
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.talon.versionplugin'
 }
+
 android {
-    compileSdk Versions.compileSdk
+    compileSdk BuildVersions.compileSdk
 
     defaultConfig {
         applicationId "com.talon.learncode"
-        minSdk Versions.minSdk
-        targetSdk Versions.targetSdk
-        versionCode Versions.versionCode
-        versionName Versions.versionName
+        minSdk BuildVersions.minSdk
+        targetSdk BuildVersions.targetSdk
+        versionCode BuildVersions.versionCode
+        versionName BuildVersions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,20 +46,19 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation Deps.recyclerView
+    implementation Deps.appcompat
+    implementation Deps.material
+    implementation Deps.constraintlayout
+    implementation Deps.livedata_ktx
+    implementation Deps.navigation_fragment_ktx
+    implementation Deps.navigation_ui_ktx
+    implementation Deps.viewmodel_ktx
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation Deps.recyclerview
+
+    implementation Deps.kotlinx_coroutines_android
+    implementation Deps.kotlinx_coroutines_core
+
 
     implementation 'io.github.scwang90:refresh-layout-kernel:2.0.6'      //核心必须依赖
     implementation 'io.github.scwang90:refresh-header-classics:2.0.6'    //经典刷新头
@@ -68,6 +69,6 @@ dependencies {
     implementation 'io.github.scwang90:refresh-footer-ball:2.0.6'        //球脉冲加载
     implementation 'io.github.scwang90:refresh-footer-classics:2.0.6'    //经典加载
 
-    implementation Deps.recyclerView
+
 
 }

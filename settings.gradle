@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "LearnCode"
 include ':app'
+includeBuild("verison-plugin")
